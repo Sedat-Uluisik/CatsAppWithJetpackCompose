@@ -40,7 +40,7 @@ fun HomeScreen(
         mutableStateOf(null)
     }
 
-    var loadFromOne by remember {
+    var loadOnce by remember {
         mutableStateOf(false)
     }
 
@@ -48,9 +48,9 @@ fun HomeScreen(
         mutableStateOf(viewModel.catList)
     }
 
-    if(!loadFromOne){
+    if(!loadOnce){
         viewModel.getCatsFromApi()
-        loadFromOne = true
+        loadOnce = true
     }
 
     if(catList.value.isNotEmpty()){

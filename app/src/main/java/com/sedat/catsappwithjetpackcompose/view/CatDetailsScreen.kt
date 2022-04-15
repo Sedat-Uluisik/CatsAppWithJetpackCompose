@@ -36,7 +36,7 @@ fun CatDetailsScreen(
     viewModel: CatDetailsViewModel = hiltViewModel()
 ) {
 
-    var loadDataOnce by remember {
+    var loadOnce by remember {
         mutableStateOf(false)
     }
 
@@ -44,9 +44,9 @@ fun CatDetailsScreen(
         mutableStateOf(viewModel.isFavorite)
     }
 
-    if(!loadDataOnce){
+    if(!loadOnce){
         viewModel.isFavorite(catItem.id)
-        loadDataOnce = true
+        loadOnce = true
     }
 
 

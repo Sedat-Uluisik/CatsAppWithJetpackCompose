@@ -30,13 +30,13 @@ fun FavoritesScreen(
     viewModel: FavoritesViewModel = hiltViewModel()
 ) {
 
-    var getDataOnce by remember {
+    var loadOnce by remember {
         mutableStateOf(false)
     }
 
-    if (!getDataOnce){
+    if (!loadOnce){
         viewModel.getCatsFromRoom()
-        getDataOnce = true
+        loadOnce = true
     }
 
     val catList by remember {
